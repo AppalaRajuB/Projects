@@ -11,21 +11,18 @@ import com.techm.beans.User;
 public class LoginController {
 	
 	@RequestMapping("/")
-	public ModelAndView login()
+	public ModelAndView login(@ModelAttribute("user") User user)
 	{
 		ModelAndView model= new ModelAndView("login");
-		User user = new User();
-		model.addObject("user", user);
 		return model;
 	}
 	
-	@RequestMapping("/login")
-	public ModelAndView getLoginDetails(@ModelAttribute("user") User user)
+	@RequestMapping("/register")
+	public ModelAndView getLoginDetails()
 	{
-		ModelAndView model= new ModelAndView("register");
-		
-		System.out.println(user.getEmail());
-		
+		ModelAndView model= new ModelAndView("register");	
+		User user = new User();
+		model.addObject("user", user);
 		return model;
 	}
 

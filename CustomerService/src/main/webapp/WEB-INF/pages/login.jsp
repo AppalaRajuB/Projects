@@ -87,7 +87,7 @@ table {
 											path="passwd" placeholder="Enter Password" />
 									</div>
 									<div class="form-group" align="right">
-										<a href=""> <u>Register</u>
+										<a href="./register"> <u>Register</u>
 										</a>
 									</div>
 									<div class="form-group " align="center">
@@ -100,10 +100,7 @@ table {
 				</td>
 			</tr>
 		</table>
-		<BR>
-		<BR>
-		<BR>
-		<br>
+		<BR>		<BR>		<BR>		
 		<div align="center">
 			<span class="copyright" style="color: gray"> &copy; 2019 Tech
 				Mahindra Ltd. All rights reserved.<span>
