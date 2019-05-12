@@ -1,6 +1,6 @@
 <footer class="main-footer">
 			<div class="container-fluid">
-				<div class="row">
+				<div class="row ">
 					<div class="col-sm-12" align="center">
 						<span class="copyright" style="color: gray"> &copy; 2019
 							Tech Mahindra Ltd. All rights reserved.<span>

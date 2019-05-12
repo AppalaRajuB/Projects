@@ -15,4 +15,25 @@ public class HomeController {
 		ModelAndView model= new ModelAndView("home");
 		return model;
 	}
+	
+	@RequestMapping("/allusers")
+	public ModelAndView allUsers(@ModelAttribute("users") User user)
+	{
+		ModelAndView model= new ModelAndView("allusers");
+		return model;
+	}
+	
+	@RequestMapping("/personaldetails")
+	public ModelAndView personalDetails(@ModelAttribute("users") User user)
+	{
+		ModelAndView model= new ModelAndView("perosnalDetails");
+		return model;
+	}
+	
+	@RequestMapping("/logout")
+	public ModelAndView logout(@ModelAttribute("users") User user)
+	{
+		ModelAndView model= new ModelAndView("");
+		return model;
+	}
 }

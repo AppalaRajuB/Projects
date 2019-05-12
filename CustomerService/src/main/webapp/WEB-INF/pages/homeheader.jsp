@@ -58,7 +58,7 @@
 				</div>
 				<!-- Small Brand information, appears on minimized sidebar-->
 				<div class="sidenav-header-logo">
-					<a href="index.html" class="brand-small text-center"> <strong>C</strong><strong
+					<a href="./home" class="brand-small text-center"> <strong>C</strong><strong
 						class="text-primary">S</strong></a>
 				</div>
 			</div>
@@ -66,19 +66,19 @@
 			<div class="main-menu">
 				<h5 class="sidenav-heading"></h5>
 				<ul id="side-main-menu" class="side-menu list-unstyled">
-					<li><a href="index.html"> <i class="icon-home"></i>Home
+					<li><a href="./home"> <i class="icon-home"></i>Home
 					</a></li>
-					<li><a href="#formsDropdown" aria-expanded="false"> <i
+					<li><a href="./allusers" aria-expanded="false"> <i
 							class="icon-form"></i>All Users
 					</a></li>
-					<li><a href="#formsDropdown" aria-expanded="false">
+					<li><a href="./personaldetails" aria-expanded="false">
 							<i class="icon-form"></i>Personal Details
 					</a></li>
 					<li><a href="#chartsDropdown" aria-expanded="false">
 							<i class="fa fa-bar-chart"></i>Charts
 					</a></li>
 
-					<li><a href="#"> <i class="fa fa-sign-out"></i>Logout
+					<li><a href="./"> <i class="fa fa-sign-out"></i>Logout
 					</a></li>
 				</ul>
 			</div>
@@ -87,13 +87,13 @@
 	<div class="page">
 		<!-- navbar-->
 		<header class="header">
-			<nav class="navbar">
+			<nav class="navbar ">
 				<div class="container-fluid">
 					<div
-						class="navbar-holder d-flex align-items-center justify-content-between">
+						class="navbar-holder d-flex align-items-center justify-content-between ">
 						<div class="navbar-header">
 							<a id="toggle-btn" href="#" class="menu-btn"><i
-								class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
+								class="icon-bars"> </i></a><a href="./home" class="navbar-brand">
 								<div class="brand-text d-none d-md-inline-block">
 									<span style="color: red" align="center"><strong>Customer
 											Service</strong></span>
@@ -107,7 +107,7 @@
 									alt="" width="" height="30px"></span></li>
 
 							<!-- Log out-->
-							<li class="nav-item"><a href="login.html"
+							<li class="nav-item"><a href="./"
 								class="nav-link logout"> <span
 									class="d-none d-sm-inline-block">Logout</span><i
 									class="fa fa-sign-out"></i></a></li>
