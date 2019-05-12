@@ -108,4 +108,16 @@ table {
 	</div>
 	<jsp:include page="../pages/footer.jsp" />
 </body>
+
+
+
+
+<head>   
+   
+   
+</head>
+<body>
+   
+</body>
+
 </html>

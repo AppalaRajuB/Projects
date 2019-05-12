@@ -49,7 +49,7 @@
 											</div>
 											<div class="card-body">
 												<div class="form-group">
-													<form:form action="./register" modelAttribute="user">
+													<form:form action="./registers" modelAttribute="user" method="post">
 														<div class="form-group">
 															<label for="email">Email address:</label>
 															<form:input type="email" class="form-control" id="email"

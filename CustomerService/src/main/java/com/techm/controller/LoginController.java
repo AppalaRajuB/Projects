@@ -18,7 +18,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/register")
-	public ModelAndView getLoginDetails()
+	public ModelAndView showRegistration()
 	{
 		ModelAndView model= new ModelAndView("register");	
 		User user = new User();
