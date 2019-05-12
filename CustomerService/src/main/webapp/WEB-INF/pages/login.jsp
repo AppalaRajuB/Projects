@@ -2,9 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Bootstrap Example</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Service</title>
 <jsp:include page="../pages/header.jsp" />
 <style>
 table {
@@ -21,16 +19,14 @@ table {
 					src="<%=request.getContextPath()%>/resources/images/sidecut.png"
 					alt="" width="100%" height="18%"></td>
 				<td width="33%" align="center">
-					<h2 style="color: red">
-						Customer Service
-						</h2>
+					<h2 style="color: red">Customer Service</h2>
 				</td>
 				<td width="33%" align="right"><img
 					src="<%=request.getContextPath()%>/resources/images/logo.jpg"
 					alt="" width="" height="35%"></td>
 			</tr>
 		</table>
-		<table  width="100%">
+		<table width="100%">
 			<tr>
 				<td width="50%">
 					<div id="demo" class="carousel slide" data-ride="carousel">
@@ -70,7 +66,7 @@ table {
 					<div class=" " align="center">
 						<img
 							src="<%=request.getContextPath()%>/resources/images/avatarlogin.png"
-							 class="rounded-circle" style="width: 70px;">
+							class="rounded-circle" style="width: 70px;">
 					</div>
 					<div class="card">
 						<div class="card-body" style="height: 100">
@@ -96,11 +92,11 @@ table {
 								</form:form>
 							</div>
 						</div>
-						</div>
+					</div>
 				</td>
 			</tr>
 		</table>
-		<BR>		<BR>		<BR>		
+		<BR> <BR> <BR>
 		<div align="center">
 			<span class="copyright" style="color: gray"> &copy; 2019 Tech
 				Mahindra Ltd. All rights reserved.<span>
@@ -108,16 +104,3 @@ table {
 	</div>
 	<jsp:include page="../pages/footer.jsp" />
 </body>
-
-
-
-
-<head>   
-   
-   
-</head>
-<body>
-   
-</body>
-
-</html>

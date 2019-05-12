@@ -3,15 +3,12 @@
 <html lang="en">
 <head>
 <title>Register</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="../pages/header.jsp" />
 <style>
 .borders {
 	border: 1px solid black;
 }
 </style>
-
 </head>
 <body>
 	<div class="container">

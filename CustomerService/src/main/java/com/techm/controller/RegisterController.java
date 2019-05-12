@@ -17,8 +17,10 @@ public class RegisterController {
 			ModelAndView model= new ModelAndView("personalinfo");
 			//users save logic
 			
-			PersonalDetails personsData = new PersonalDetails();
-			model.addObject("persons", personsData);
+			User users = new User();
+			PersonalDetails pd = new PersonalDetails();
+			user.setPersons(pd);
+			model.addObject("users", users);
 			return model;
 		}
 }

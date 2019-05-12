@@ -11,6 +11,22 @@ public class User {
 	
 	private String passwd;
 	
+	private PersonalDetails persons;
+	
+	/**
+	 * @return the persons
+	 */
+	public PersonalDetails getPersons() {
+		return persons;
+	}
+
+	/**
+	 * @param persons the persons to set
+	 */
+	public void setPersons(PersonalDetails persons) {
+		this.persons = persons;
+	}
+
 	public String getEmail() {
 		return email;
 	}
