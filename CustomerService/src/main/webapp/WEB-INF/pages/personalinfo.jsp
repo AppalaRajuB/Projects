@@ -63,7 +63,7 @@
 														<div class="form-group">
 															<div class="row">
 																<div class="col-md-12">
-																	<h6><label>Gender:</label></h6><br> <label
+																	<h6><label>Gender:</label></h6> <label
 																		class="form-check-label" for="maleradio"> <form:radiobutton
 																			id="maleradio" name="gender" value="male"
 																			path="persons.gender" label="Male" />
@@ -79,11 +79,10 @@
 															</div>
 														</div>
 														<div class="form-group">
-														    <h6><label>Date of Birth:</label></h6><br>
+														    <h6><label>Date of Birth:</label></h6>
 															<form:input id="datepicker" width="200" path="persons.dob" />															
 														</div>
-												</div>
-												<div class="form-group">&nbsp;</div>
+												</div>												
 												<div class="form-group " align="right">
 													<input type="submit" class="btn btn-primary"
 															value="  Save "></input>
@@ -107,7 +106,7 @@
 			
 			</tr>
 		</table>
-		<BR> <BR> <BR>
+		<BR> <br>
 		<div align="center">
 			<span class="copyright" style="color: gray"> &copy; 2019 Tech
 				Mahindra Ltd. All rights reserved.</span>

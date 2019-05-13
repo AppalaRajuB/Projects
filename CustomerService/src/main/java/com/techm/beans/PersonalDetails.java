@@ -1,5 +1,8 @@
 package com.techm.beans;
 
+import org.springframework.stereotype.Component;
+
+
 public class PersonalDetails {
 	
 	private String name;
