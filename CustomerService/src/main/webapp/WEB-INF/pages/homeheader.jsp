@@ -95,7 +95,7 @@
 							<a id="toggle-btn" href="#" class="menu-btn"><i
 								class="icon-bars"> </i></a><a href="./home" class="navbar-brand">
 								<div class="brand-text d-none d-md-inline-block">
-									<span style="color: red" align="center"><strong>Customer
+									<span style="color: red"><strong>Customer
 											Service</strong></span>
 								</div>
 							</a>

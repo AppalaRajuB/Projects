@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.techm.beans.PersonalDetails;
 import com.techm.beans.User;
 
 @Controller
@@ -18,8 +17,6 @@ public class RegisterController {
 			//users save logic
 			
 			User users = new User();
-			PersonalDetails pd = new PersonalDetails();
-			user.setPersons(pd);
 			model.addObject("users", users);
 			return model;
 		}

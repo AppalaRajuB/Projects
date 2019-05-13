@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="container">
-		<table width="100%" class="borders">
+		<table style="width:100%;" class="borders">
 			<tr>
 				<td width="33%" align="left"><img
 					src="<%=request.getContextPath()%>/resources/images/sidecut.png"
@@ -25,7 +25,7 @@
 					alt="" width="" height="35%"></td>
 			</tr>
 		</table>
-		<table  width="100%" background="<%=request.getContextPath()%>/resources/images/bgimage.jpg"
+		<table  style="width:100%;" background="<%=request.getContextPath()%>/resources/images/bgimage.jpg"
 			class="borders">
 			<tr>
 				<td>&nbsp; <br>
@@ -34,7 +34,7 @@
 			<tr>
 				<td>
 					<div>
-						<table align="center" width="50%">
+						<table align="center" style="width:50%;">
 							<tr>
 								<td>
 									<div class="container">

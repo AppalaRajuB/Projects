@@ -19,7 +19,7 @@
 
 <body>
 	<div class="container">
-		<table width="100%" class="borders">
+		<table style="width:100%;"class="borders">
 			<tr>
 				<td width="33%" align="left"><img
 					src="<%=request.getContextPath()%>/resources/images/sidecut.png"
@@ -32,7 +32,7 @@
 					alt="" width="" height="35%"></td>
 			</tr>
 		</table>
-		<table width="100%"
+		<table style="width:100%;"
 			background="<%=request.getContextPath()%>/resources/images/bgimage.jpg"
 			class="borders">
 			<tr>
@@ -44,7 +44,7 @@
 			<tr>
 				<td>
 					<div>
-						<table align="center" width="50%">
+						<table align="center" style="width:50%;">
 							<tr>
 								<td>
 									<div class="container">
@@ -56,14 +56,14 @@
 											<form:form action="./persons" modelAttribute="users" method="post">
 												<div class="form-group">													
 														<div class="form-group">
-															<label for="email"><h6>Name:</h6></label>
+															<h6><label for="email">Name:</label></h6>
 															<form:input type="text" class="form-control" id="name"
 																path="persons.name" placeholder="Enter name" />
 														</div>
 														<div class="form-group">
 															<div class="row">
 																<div class="col-md-12">
-																	<label><h6>Gender:</h6></label><br> <label
+																	<h6><label>Gender:</label></h6><br> <label
 																		class="form-check-label" for="maleradio"> <form:radiobutton
 																			id="maleradio" name="gender" value="male"
 																			path="persons.gender" label="Male" />
@@ -79,7 +79,7 @@
 															</div>
 														</div>
 														<div class="form-group">
-														    <label><h6>Date of Birth:</h6></label><br>
+														    <h6><label>Date of Birth:</label></h6><br>
 															<form:input id="datepicker" width="200" path="persons.dob" />															
 														</div>
 												</div>

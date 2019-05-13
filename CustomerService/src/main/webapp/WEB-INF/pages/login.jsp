@@ -13,7 +13,7 @@ table {
 </head>
 <body>
 	<div class="container">
-		<table width="100%">
+		<table style="width:100%;">
 			<tr>
 				<td width="33%" align="left"><img
 					src="<%=request.getContextPath()%>/resources/images/sidecut.png"
@@ -26,7 +26,7 @@ table {
 					alt="" width="" height="35%"></td>
 			</tr>
 		</table>
-		<table width="100%">
+		<table style="width:100%;">
 			<tr>
 				<td width="50%">
 					<div id="demo" class="carousel slide" data-ride="carousel">
@@ -99,7 +99,7 @@ table {
 		<BR> <BR> <BR>
 		<div align="center">
 			<span class="copyright" style="color: gray"> &copy; 2019 Tech
-				Mahindra Ltd. All rights reserved.<span>
+				Mahindra Ltd. All rights reserved.</span>
 		</div>
 	</div>
 	<jsp:include page="../pages/footer.jsp" />
