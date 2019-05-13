@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @author Appala Raju
  *
  */
-@Component
+
 public class User {
 	
 	private String email;
