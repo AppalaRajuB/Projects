@@ -15,7 +15,7 @@ public class PersonsController {
 	{
 		
 		ModelAndView model= new ModelAndView("home");
-		System.out.println("asdfasfda:"+user.getPersons().getDob());
+		//System.out.println("asdfasfda:"+user.getPersons().getDob());
 		model.addObject("users", user);
 		return model;
 	}

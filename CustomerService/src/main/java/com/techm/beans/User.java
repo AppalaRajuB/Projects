@@ -1,6 +1,11 @@
 package com.techm.beans;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * 
@@ -8,28 +13,40 @@ import org.springframework.stereotype.Component;
  *
  */
 
+@Entity
+@Table(name = "Login")
 public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	private String email;
 	
 	private String passwd;
 	
-	private PersonalDetails persons;
+	/*@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(unique = true)
+	private PersonDetails persons;*/
+	
 	
 	/**
-	 * @return the persons
+	 * @return the id
 	 */
-	public PersonalDetails getPersons() {
-		return persons;
+	 @Column(name = "USER_ID")
+	public Long getId() {
+		return id;
 	}
 
 	/**
-	 * @param persons the persons to set
+	 * @param id the id to set
 	 */
-	public void setPersons(PersonalDetails persons) {
-		this.persons = persons;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
+	
+	@Column(name = "EMAILID")
 	public String getEmail() {
 		return email;
 	}
@@ -38,6 +55,7 @@ public class User {
 		this.email = email;
 	}
 
+	@Column(name = "PASSWORD")
 	public String getPasswd() {
 		return passwd;
 	}
