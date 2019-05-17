@@ -14,23 +14,27 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd
 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"> 
 
 
-<context:component-scan base-package="com.techm" />
 
-<context:annotation-config/>
-
-<mvc:resources mapping="/resources/**" location="/resources/" />
- 
-<mvc:annotation-driven />
 
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 <property name="prefix" value="/WEB-INF/pages/"></property>
 <property name="suffix" value=".jsp"></property>
 </bean>
 
+<context:component-scan base-package="com.techm" />
+
+<!-- <context:annotation-config/> -->
+
+<mvc:annotation-driven />
+
+<tx:annotation-driven />
+
+<mvc:resources mapping="/resources/**" location="/resources/" />
+
 <bean id="postgresds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 <property name="driverClassName" value="org.postgresql.Driver"></property>  
 <property name="url" value="jdbc:postgresql://localhost:5432/postgres"></property>  
-<property name="username" value="admin"></property>  
+<property name="username" value="postgres"></property>  
 <property name="password" value="admin"></property>  
 </bean>  
 
@@ -47,7 +51,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">updated</prop>
 				<!--  <prop key="hibernate.current_session_context_class">thread</prop> -->
 				<prop key="hibernate.show_sql">true</prop>
 			</props>
@@ -61,15 +65,22 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	
 	<bean id="persistenceExceptionTranslationPostProcessor"
   class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+  
+  <bean id="registerDAO" class="com.techm.dao.RegisterDAO">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean> 	
+	
+	<bean id="personDAO" class="com.techm.dao.PersonDAO">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean> 
 	
 <!-- 	<bean id="personDAO" class="com.journaldev.dao.PersonDAOImpl">
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean>
 	
+	  -->
 	
-
-	<tx:annotation-driven />  -->
-	
+		
 
 <!-- <bean id="jdbctemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 <property name="dataSource" ref="postgresds"></property>
