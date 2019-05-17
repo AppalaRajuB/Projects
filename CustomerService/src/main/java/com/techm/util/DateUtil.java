@@ -14,7 +14,7 @@ public class DateUtil {
 		{
 			if(strDate != null)
 			{
-				date = new SimpleDateFormat("dd/MM/yyyy").parse(strDate);  
+				date = new SimpleDateFormat("MM/dd/yyyy").parse(strDate);  
 			}
 		}catch(Exception ex)
 		{
