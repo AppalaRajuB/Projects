@@ -1,6 +1,7 @@
 package com.techm.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,12 +19,12 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/register")
-	public ModelAndView showRegistration()
+	public String showRegistration(Model model)
 	{
-		ModelAndView model= new ModelAndView("register");	
+		//ModelAndView model= new ModelAndView("register");	
 		User user = new User();
-		model.addObject("user", user);
-		return model;
+		model.addAttribute("user", user);
+		return "register";
 	}
 
 }

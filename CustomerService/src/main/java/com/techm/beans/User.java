@@ -1,10 +1,15 @@
 package com.techm.beans;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,25 +20,47 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Login")
-public class User {
+public class User implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "USER_ID")
 	private Long id;
 	
+	@Column(name = "EMAILID")
 	private String email;
 	
+	@Column(name = "PSWD")
 	private String passwd;
 	
-	/*@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(unique = true)
-	private PersonDetails persons;*/
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "PERSON_ID")
+	private PersonDetails persons;
 	
 	
 	/**
+	 * @return the persons
+	 */
+	public PersonDetails getPersons() {
+		return persons;
+	}
+
+	/**
+	 * @param persons the persons to set
+	 */
+	public void setPersons(PersonDetails persons) {
+		this.persons = persons;
+	}
+
+	/**
 	 * @return the id
 	 */
-	 @Column(name = "USER_ID")
+	
 	public Long getId() {
 		return id;
 	}

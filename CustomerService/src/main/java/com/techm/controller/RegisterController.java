@@ -1,23 +1,49 @@
 package com.techm.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.techm.beans.PersonDetails;
 import com.techm.beans.User;
+import com.techm.services.RegisterService;
 
-@Controller
+@Controller("registerController")
+@SessionAttributes("id")
 public class RegisterController {
+	
+	@Autowired
+	private RegisterService registerService;
+	
+		/**
+	 * @return the registerService
+	 */
+	public RegisterService getRegisterService() {
+		return registerService;
+	}
 
-		@PostMapping("/registers")	
-		public ModelAndView saveRegisteredDetails(@ModelAttribute("user") User user)
+
+	/**
+	 * @param registerService the registerService to set
+	 */
+	public void setRegisterService(RegisterService registerService) {
+		this.registerService = registerService;
+	}
+
+
+		@RequestMapping(value={"/registers"})	
+		public String saveRegisteredDetails(@ModelAttribute("user") User user,BindingResult result, Model model)
 		{
-			ModelAndView model= new ModelAndView("personalinfo");
+			//ModelAndView model= new ModelAndView("person");
 			//users save logic
-			
-			User users = new User();
-			model.addObject("users", users);
-			return model;
+			Long id = getRegisterService().saveRegistrationDetails(user);
+			model.addAttribute("id",id);
+			PersonDetails pd = new PersonDetails();
+			model.addAttribute("persons", pd);
+			return "person";
 		}
 }
