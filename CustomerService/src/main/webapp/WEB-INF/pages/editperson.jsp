@@ -71,7 +71,7 @@
 									</div>
 									
 								<div class="form-group " align="right">
-										<input type="button" class="btn btn-primary" value="  Save " onclick="enablefields();"></input>
+										<input type="button" class="btn btn-primary" value="  Update " onclick="enablefields();"></input>
 								</div>
 							</td>
 						</tr>
