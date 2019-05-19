@@ -1,115 +1,172 @@
 package com.techm.beans;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "PERSONAL_DETAILS")
 public class PersonDetails implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_generator")
+	@SequenceGenerator(name="person_generator", sequenceName = "customerseq")
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name = "PERSON_ID")
 	private Long id;
 	
-	@Column(name = "NAME")
+	@Column(name = "USERNAME")	
+	@NotBlank(message="Please enter name.")
+	@NotEmpty(message="")
 	private String name;
 	
 	@Column(name = "GENDER")
+	@NotEmpty(message="Please select gender.")
 	private String gender;
 	
+	@NotEmpty(message="Please select dateofBirth.")
 	private transient String dateofBirth; 
 	
 	@Column(name = "DOB")
-	private Date dob;
+	private Timestamp dob;
 	
-	@OneToOne(mappedBy = "persons")
-    private User user;
-
-	@Column(name = "FIL_ENAME")
-	private String fileName;
+	@Column(name = "FILENAME")
+	private String filename;
 	
-	@Column(name = "FILE_PATH")
-	private String filePath;
+	@Column(name = "FILEPATH")
+	private String filepath;
 	
-	@Column(name = "CREATED_DATE")
-	private Date createdDate;
+	@Column(name = "CREATEDATE")
+	private Timestamp createdDate;
 	
-	@Column(name = "UPDATE_DATE")
-	private Date updatedDate;
+	@Column(name = "UPDATEDATE")
+	private Timestamp updateDate;
 	
-	
-
 	/**
-	 * @return the dateofBirth
+	 * @return the filename
 	 */
-	public String getDateofBirth() {
-		return dateofBirth;
+	public String getFilename() {
+		return filename;
 	}
 
 	/**
-	 * @param dateofBirth the dateofBirth to set
+	 * @param filename the filename to set
 	 */
-	public void setDateofBirth(String dateofBirth) {
-		this.dateofBirth = dateofBirth;
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 
 	/**
-	 * @return the dob
+	 * @return the filepath
 	 */
-	public Date getDob() {
-		return dob;
+	public String getFilepath() {
+		return filepath;
 	}
 
 	/**
-	 * @param dob the dob to set
+	 * @param filepath the filepath to set
 	 */
-	public void setDob(Date dob) {
-		this.dob = dob;
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
 	}
 
 	/**
 	 * @return the createdDate
 	 */
-	public Date getCreatedDate() {
+	public Timestamp getCreatedDate() {
 		return createdDate;
 	}
 
 	/**
 	 * @param createdDate the createdDate to set
 	 */
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(Timestamp createdDate) {
 		this.createdDate = createdDate;
 	}
 
 	/**
-	 * @return the updatedDate
+	 * @return the updateDate
 	 */
-	public Date getUpdatedDate() {
-		return updatedDate;
+	public Timestamp getUpdateDate() {
+		return updateDate;
 	}
 
 	/**
-	 * @param updatedDate the updatedDate to set
+	 * @param updateDate the updateDate to set
 	 */
-	public void setUpdatedDate(Date updatedDate) {
-		this.updatedDate = updatedDate;
+	public void setUpdateDate(Timestamp updateDate) {
+		this.updateDate = updateDate;
+	}
+
+
+	/**
+	 * @return the dob
+	 */
+	public Timestamp getDob() {
+		return dob;
 	}
 
 	/**
+	 * @param dob the dob to set
+	 */
+	public void setDob(Timestamp dob) {
+			this.dob = dob;
+		
+	}
+
+	/**
+	 * @return the dateofBirth
+	 */
+	public String getDateofBirth() {
+		
+		if(getDob() == null)
+		{
+			return dateofBirth;
+		}else
+		{
+			SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");  
+			return formatter.format(getDob());
+		}
+	}
+
+	/**
+	 * @param dateofBirth the dateofBirth to set
+	 */
+	public void setDateofBirth(String dateofBirth) {
+		if(getDob() == null)
+		{
+			this.dateofBirth = dateofBirth;
+			try
+			{
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+			    Date parsedTimeStamp = dateFormat.parse(getDateofBirth());
+			    this.dob = new Timestamp(parsedTimeStamp.getTime());
+			}catch(Exception ex)
+			{
+				
+			}
+		}else
+		{
+			SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");  
+			this.dateofBirth = formatter.format(getDob());
+			
+		}
+	}
+
+	/** 
 	 * @return the id
 	 */
 	public Long getId() {
@@ -123,47 +180,7 @@ public class PersonDetails implements Serializable{
 		this.id = id;
 	}
 
-	/**
-	 * @return the user
-	 */
-	public User getUser() {
-		return user;
-	}
-
-	/**
-	 * @param user the user to set
-	 */
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName() {
-		return fileName;
-	}
-
-	/**
-	 * @param fileName the fileName to set
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-
-	/**
-	 * @return the filePath
-	 */
-	public String getFilePath() {
-		return filePath;
-	}
-
-	/**
-	 * @param filePath the filePath to set
-	 */
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
+	
 
 	/**
 	 * @return the name
@@ -192,7 +209,8 @@ public class PersonDetails implements Serializable{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
+	
+	
 	
 
 }
