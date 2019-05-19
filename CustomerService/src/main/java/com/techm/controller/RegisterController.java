@@ -1,5 +1,7 @@
 package com.techm.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +15,7 @@ import com.techm.beans.User;
 import com.techm.services.RegisterService;
 
 @Controller("registerController")
-@SessionAttributes("id")
+@SessionAttributes("userobj")
 public class RegisterController {
 	
 	@Autowired
@@ -36,14 +38,34 @@ public class RegisterController {
 
 
 		@RequestMapping(value={"/registers"})	
-		public String saveRegisteredDetails(@ModelAttribute("user") User user,BindingResult result, Model model)
+		public String saveRegisteredDetails(@Valid @ModelAttribute("user") User user,BindingResult br, Model model)
 		{
 			//ModelAndView model= new ModelAndView("person");
 			//users save logic
-			Long id = getRegisterService().saveRegistrationDetails(user);
-			model.addAttribute("id",id);
-			PersonDetails pd = new PersonDetails();
-			model.addAttribute("persons", pd);
-			return "person";
+			 if(br.hasErrors())  
+	        {  
+	            return "register";  
+	        }  
+	        else  
+	        { 
+	        	User usrDB = getRegisterService().verifyemailRegisterdDetails(user);
+	        	if(usrDB != null)
+    			{
+	        		model.addAttribute("userexists", "User already exists.Please try with another email.");
+	        		return "register";
+    			}else
+    			{
+    				user.setEmail(user.getEmail().trim().toLowerCase());
+					Long id = getRegisterService().saveRegistrationDetails(user);
+					User usrSess = new User();
+					usrSess.setId(id);
+					model.addAttribute("userobj", usrSess);
+					//model.addAttribute("id",id);
+					PersonDetails pd = new PersonDetails();
+					model.addAttribute("persons", pd);
+    			}
+			
+		    }
+			 return "person";
 		}
 }
