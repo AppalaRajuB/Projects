@@ -9,6 +9,7 @@
 .borders {
 	border: 1px solid black;
 }
+.error{color:red}
 </style>
 <link href="<%=request.getContextPath()%>/resources/css/gijgo.min.css"
 	rel="stylesheet" type="text/css" />
@@ -54,38 +55,39 @@
 												<div class="form-group">
 													<form:form action="./personal" modelAttribute="persons">
 														<div class="form-group">
-															<h6>
-																<label for="email">Name:</label>
-															</h6>
+															<font color="red">*</font>
+															<label for="email" style="font-weight: bold">Name:</label>
 															<form:input type="text" class="form-control" id="name"
-																path="name" placeholder="Enter name" />
+																path="name" placeholder="Enter name"  maxlength="50"/>
+																<form:errors path="name" class="form-control text-danger" cssClass="error"/>
 														</div>
 													 	<div class="form-group">
 															<div class="row">
 																<div class="col-md-12">
-																	<h6>
-																		<label>Gender:</label>
-																	</h6>
+																	<font color="red">*</font>
+																	<label  style="font-weight: bold">Gender:</label>
 																	<label class="form-check-label" for="maleradio">
 																		<form:radiobutton id="maleradio" name="gender"
 																			value="male" path="gender" label="Male" />
-																	</label> <label class="form-check-label" for="femaleradio">
+																	</label>
+																	 <label class="form-check-label" for="femaleradio">
 																		<form:radiobutton id="femaleradio" name="gender"
 																			value="female" path="gender" label="Female" />
 																	</label>
+																	<form:errors path="gender" class="form-control text-danger" cssClass="error"/>
 																</div>
 															</div>
 														</div>
 													  <div class="form-group">
-															<h6>
-																<label>Date of Birth:</label>
-															</h6>
-															<form:input id="datepicker" width="200" path="dateofBirth" />
+															<font color="red">*</font>
+															<label  style="font-weight: bold">Date of Birth:</label>
+															<form:input id="datepicker" width="200" path="dateofBirth" disabled="true"/>
+															<form:errors path="dateofBirth" class="form-control text-danger" cssClass="error"/>
 														</div> 
 
 														<div class="form-group " align="right">
 															<input type="submit" class="btn btn-primary"
-																value="  Save "></input>
+																value="  Save " onclick="enablefields();"></input>
 														</div>
 													</form:form>
 												</div>
@@ -114,5 +116,11 @@
 			uiLibrary : 'bootstrap4',
 			rightIcon : '<i class="material-icons">date_range</i>'
 		});
+		
+		function enablefields()
+		{
+			document.getElementById("datepicker").disabled = false;
+			return true;
+		}
 	</script>
 </html>

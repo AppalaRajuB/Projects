@@ -1,4 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,6 +74,7 @@ table {
 						<div class="card-body" style="height: 100">
 							<div class="form-group">
 								<form:form action="./login" modelAttribute="user">
+								<div id="errorMsg" style="color:red">${nouser}</div><br>
 									<div class="form-group">
 										<label for="email">Email address:</label>
 										<form:input type="email" class="form-control" id="email"

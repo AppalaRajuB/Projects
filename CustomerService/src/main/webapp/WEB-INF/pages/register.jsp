@@ -1,4 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +10,9 @@
 .borders {
 	border: 1px solid black;
 }
+.error{color:red}
+
+label {font-weight: bold}
 </style>
 </head>
 <body>
@@ -47,15 +52,20 @@
 											<div class="card-body">
 												<div class="form-group">
 													<form:form action="./registers" modelAttribute="user">
+														<div id="errorMsg" style="color:red">${userexists}</div><br>
 														<div class="form-group">
+														  <font color="red">*</font>
 															<label for="email">Email address:</label>
 															<form:input type="email" class="form-control" id="email"
-																path="email" placeholder="Enter email" />
+																path="email" placeholder="Enter email" maxlength="50"/>
+															<form:errors path="email" class="form-control text-danger" cssClass="error"/>
 														</div>
 														<div class="form-group">
-															<label for="pwd">Password:</label>
+															<font color="red">*</font>
+															<label for="pwd" >Password:</label>
 															<form:input type="password" class="form-control" id="pwd"
-																path="passwd" placeholder="Enter Password" />
+																path="passwd" placeholder="Enter Password" maxlength="50"/>
+															<form:errors path="passwd" class="form-control text-danger" cssClass="error"/>
 														</div>
 														<div class="form-group">
 														   &nbsp;

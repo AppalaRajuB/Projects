@@ -1,3 +1,4 @@
+<%@ page import="com.techm.beans.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +43,10 @@
 </head>
 
 <body>
+<%
+
+User user = (User)session.getAttribute("userobj");
+%>
 	<!-- Side Navbar -->
 	<nav class="side-navbar">
 		<div class="side-navbar-wrapper">
@@ -53,7 +58,7 @@
 					<a href="pages-profile.html"><img
 						src="<%=request.getContextPath()%>/resources/images/rajuphoto3.jpg"
 						alt="person" class="img-fluid rounded-circle"></a>
-					<h2 class="h5">Appala Raju</h2>
+					<h2 class="h5"><%= user.getPersons().getName() %></h2>
 					<span></span>
 				</div>
 				<!-- Small Brand information, appears on minimized sidebar-->
@@ -74,7 +79,7 @@
 					<li><a href="./personaldetails" aria-expanded="false">
 							<i class="icon-form"></i>Personal Details
 					</a></li>
-					<li><a href="#chartsDropdown" aria-expanded="false">
+					<li><a href="./charts" aria-expanded="false">
 							<i class="fa fa-bar-chart"></i>Charts
 					</a></li>
 
