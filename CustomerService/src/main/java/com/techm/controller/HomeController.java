@@ -99,7 +99,6 @@ public class HomeController {
 		         MultipartFile multipartFile = file.getFile();
 		         String uploadPath = context.getRealPath("/fileuploads") + File.separator;
 		         FileCopyUtils.copy(file.getFile().getBytes(), new File(uploadPath+file.getFile().getOriginalFilename()));
-		         String fileName = multipartFile.getOriginalFilename();
 	    	 }
 	      }
 		return model;
