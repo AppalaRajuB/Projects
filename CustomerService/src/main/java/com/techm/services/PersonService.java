@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.techm.beans.PersonDetails;
-import com.techm.beans.User;
 import com.techm.dao.PersonDAO;
 
 @Service("personService")

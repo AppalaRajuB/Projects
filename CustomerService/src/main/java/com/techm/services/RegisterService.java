@@ -39,4 +39,8 @@ public class RegisterService {
 		return getRegisterDAO().saveRegistrationDetails(user);
 	}
 
+	public User verifyemailRegisterdDetails(User user)
+	{
+		return getRegisterDAO().verifyemailRegisterdDetails(user);
+	}
 }

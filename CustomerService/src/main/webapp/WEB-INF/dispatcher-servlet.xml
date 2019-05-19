@@ -51,7 +51,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
-				<prop key="hibernate.hbm2ddl.auto">updated</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<!--  <prop key="hibernate.current_session_context_class">thread</prop> -->
 				<prop key="hibernate.show_sql">true</prop>
 			</props>
@@ -74,13 +74,22 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean> 
 	
+	<bean id="homeDAO" class="com.techm.dao.HomeDAO">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean> 
+	
+	<bean id="loginDAO" class="com.techm.dao.LoginDAO">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean>
+	
+	<bean id="multipartResolver"   
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
+	
 <!-- 	<bean id="personDAO" class="com.journaldev.dao.PersonDAOImpl">
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean>
 	
 	  -->
-	
-		
 
 <!-- <bean id="jdbctemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 <property name="dataSource" ref="postgresds"></property>
