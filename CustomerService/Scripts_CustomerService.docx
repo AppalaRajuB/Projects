@@ -1,0 +1,222 @@
+-- Table: public.login
+
+-- DROP TABLE public.login;
+
+CREATE TABLE public.login
+(
+    user_id integer NOT NULL,
+    emailid character varying(50) COLLATE pg_catalog."default",
+    pswd character varying(50) COLLATE pg_catalog."default",
+    person_id integer,
+    CONSTRAINT login_pkey PRIMARY KEY (user_id),
+    CONSTRAINT persons_fk FOREIGN KEY (person_id)
+        REFERENCES public.personal_details (person_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.login
+    OWNER to postgres;
+	----------------------------------------
+	
+	
+	-- Table: public.login
+
+-- DROP TABLE public.login;
+
+CREATE TABLE public.login
+(
+    user_id integer NOT NULL,
+    emailid character varying(50) COLLATE pg_catalog."default",
+    pswd character varying(50) COLLATE pg_catalog."default",
+    person_id integer,
+    CONSTRAINT login_pkey PRIMARY KEY (user_id),
+    CONSTRAINT persons_fk FOREIGN KEY (person_id)
+        REFERENCES public.personal_details (person_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.login
+    OWNER to postgres;
+	-------------------------------------
+	
+	-- SEQUENCE: public.customerseq
+
+-- DROP SEQUENCE public.customerseq;
+
+CREATE SEQUENCE public.customerseq
+    INCREMENT 1
+    START 57
+    MINVALUE 50
+    MAXVALUE 9223372036854775807
+    CACHE 1;
+
+ALTER SEQUENCE public.customerseq
+    OWNER TO postgres;
+	
+	-----------------------------
+	
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (1, 'AppalaRaju', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-19','yyyy-MM-dd'), to_date('2019-4-19','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (1, 'raju@techmahindra.com', 'Chantiraj12@', 1);
+	
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (2, 'Rakesh', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-19','yyyy-MM-dd'), to_date('2019-4-19','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (2, 'rakesh@techmahindra.com', 'Chantiraj12@', 2);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (3, 'SaiPrasad', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-20','yyyy-MM-dd'), to_date('2019-4-20','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (3, 'saiprasad@techmahindra.com', 'Chantiraj12@', 3);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (4, 'Dileep', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-20','yyyy-MM-dd'), to_date('2019-4-20','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (4, 'dileep@techmahindra.com', 'Chantiraj12@', 4);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (5, 'Shant', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-20','yyyy-MM-dd'), to_date('2019-4-20','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (5, 'shant@techmahindra.com', 'Chantiraj12@', 5);
+	
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (6, 'Balajee', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-20','yyyy-MM-dd'), to_date('2019-4-20','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (6, 'balajee@techmahindra.com', 'Chantiraj12@', 6);
+	
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (7, 'venukumari', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-23','yyyy-MM-dd'), to_date('2019-4-23','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (7, 'venukumari@techmahindra.com', 'Chantiraj12@', 6);
+	
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (8, 'Shant Kumar', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-23','yyyy-MM-dd'), to_date('2019-4-23','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (8, 'shantkumar@techmahindra.com', 'Chantiraj12@', 8);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (9, 'Dushyant', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-23','yyyy-MM-dd'), to_date('2019-4-23','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (9, 'dushyant@techmahindra.com', 'Chantiraj12@', 9);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (10, 'MD Sahid', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-23','yyyy-MM-dd'), to_date('2019-4-23','yyyy-MM-dd'));
+	
+INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (10, 'dushyant@techmahindra.com', 'Chantiraj12@', 10);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (11, 'Abhishek', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-4-23','yyyy-MM-dd'), to_date('2019-4-23','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (11, 'abhishek@techmahindra.com', 'Chantiraj12@', 11);
+	
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (12, 'Shweta', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-5-11','yyyy-MM-dd'), to_date('2019-5-11','yyyy-MM-dd'));
+	
+INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (12, 'shweta@techmahindra.com', 'Chantiraj12@', 12);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (13, 'kinnera', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-5-11','yyyy-MM-dd'), to_date('2019-5-11','yyyy-MM-dd'));
+	
+INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (13, 'shweta@techmahindra.com', 'Chantiraj12@', 13);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (14, 'Roshini', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-5-12','yyyy-MM-dd'), to_date('2019-5-12','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (14, 'roshini@techmahindra.com', 'Chantiraj12@', 14);
+	
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (15, 'Barakathulla', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-5-18','yyyy-MM-dd'), to_date('2019-5-12','yyyy-MM-dd'));
+	
+		INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (15, 'barakathulla@techmahindra.com', 'Chantiraj12@', 15);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (16, 'Manisha', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-5-18','yyyy-MM-dd'), to_date('2019-5-12','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (16, 'manisha@techmahindra.com', 'Chantiraj12@', 16);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (16, 'Sunil', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-5-18','yyyy-MM-dd'), to_date('2019-5-12','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (16, 'sunil@techmahindra.com', 'Chantiraj12@', 16);
+		
+INSERT INTO public.personal_details(
+	person_id, username, gender, dob, filename, filepath, createdate, updatedate)
+	VALUES (17, 'Sravani', 'male', to_Date('2019-04-19','yyyy-MM-dd'),null ,null, to_date('2019-5-18','yyyy-MM-dd'), to_date('2019-5-12','yyyy-MM-dd'));
+	
+	INSERT INTO public.login
+	(user_id, emailid, pswd, person_id)
+	VALUES (17, 'sravani@techmahindra.com', 'Chantiraj12@', 17);
+	
+	
+	commit;
+		
+
+	
+	

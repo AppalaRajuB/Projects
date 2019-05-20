@@ -93,9 +93,8 @@ private SessionFactory sessionFactory;
 		String queryString = "";
 		if(charttype == null || charttype.equals("daily"))
 		{
-			queryString ="select TO_CHAR(p.createdate, 'dd/mm/yyyy') as d, count(*) as total " + 
-					"from personal_details p " + 
-					"  group by 1 order by 1";
+			queryString ="select to_date(to_char(p.createdate, 'DD/MM/YYYY'),'DD/MM/YYYY') as d, count(*) as total " + 
+					"from personal_details p  group by 1 order by 1 ASC";
 		}else
 		{
 			queryString ="select TO_CHAR(p.createdate, 'Month') as m, count(*) as total "+
