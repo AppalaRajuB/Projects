@@ -30,9 +30,8 @@ public User verifyLogin(User user) {
 		try
 		{
 			session = this.sessionFactory.openSession();
-			Query query = session.createQuery("from User usr where usr.email = :email and usr.passwd = :pwd")
-					.setString("email", user.getEmail().trim().toLowerCase())
-					.setString("pwd",user.getPasswd());
+			Query query = session.createQuery("from User usr where usr.email = :email")
+					.setString("email", user.getEmail().trim().toLowerCase());
 			
 			usrList = query.list();
 			if(usrList != null && usrList.size() > 0)

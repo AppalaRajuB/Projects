@@ -5,7 +5,7 @@
 <head>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<!-- <script src="https://code.highcharts.com/modules/export-data.js"></script> -->
 
 </head>
 <div class="container-fluid">
@@ -26,6 +26,7 @@
 </div>
 </div>
 
+
 <jsp:include page="../pages/homefooter.jsp" />
 
 <script>
@@ -40,6 +41,7 @@ Highcharts.chart('linechart', {
 	  subtitle: {
 	    text: ''
 	  },
+	  
 	  xAxis: {
 		  
 	    categories: ${day}
@@ -60,6 +62,14 @@ Highcharts.chart('linechart', {
 	  series: [{
 	    name: 'Users',
 	    data: ${usrs.values()}
-	  }]
+	  }],
+	  exporting: {
+	       
+	        buttons: {
+	            contextButton: {
+	                menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+	            }
+	        }}
+	  
 	});
 </script>

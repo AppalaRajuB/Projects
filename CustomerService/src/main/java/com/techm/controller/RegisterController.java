@@ -3,6 +3,7 @@ package com.techm.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -56,6 +57,9 @@ public class RegisterController {
     			}else
     			{
     				user.setEmail(user.getEmail().trim().toLowerCase());
+    				
+    				BCryptPasswordEncoder pswdEncrypt = new BCryptPasswordEncoder();
+    				user.setPasswd(pswdEncrypt.encode(user.getPasswd()));
 					Long id = getRegisterService().saveRegistrationDetails(user);
 					User usrSess = new User();
 					usrSess.setId(id);

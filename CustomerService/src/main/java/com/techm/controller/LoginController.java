@@ -3,6 +3,7 @@ package com.techm.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -55,14 +56,20 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String verifyLogin(@Valid @ModelAttribute("user") User user, BindingResult br, Model model)
 	{
+		BCryptPasswordEncoder pswdEncrypt = new BCryptPasswordEncoder();
 		User usrDB = null;
     	usrDB = getLoginService().verifyLogin(user);
     	if(usrDB == null)
 		{
     		model.addAttribute("nouser", "Please verify your credentials.");
     		return "login";
+		}else if(!pswdEncrypt.matches(user.getPasswd(), usrDB.getPasswd()))
+		{
+			model.addAttribute("nouser", "Please verify your credentials.");
+    		return "login";
 		}else
 		{
+			
 			model.addAttribute("userobj", usrDB);
 			model.addAttribute("user", usrDB);
 		}
